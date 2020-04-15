@@ -1,0 +1,82 @@
+/*Simple Linked List Program using Array
+This program is free to use and for knowledge purpose
+*/
+#include<iostream>
+
+using namespace std;
+
+int main()
+{
+	static int size; //static variable for keep tracking and updating size of linked list through out code
+	
+	int arr[100], choice; //arr[100] is used to initialize array
+
+	cout << "\n\t\tBasic Linked List Program Using Array\n" << endl;
+
+	cout << "Enter size of linked list: ";
+	cin >> size;		//Taking input from user for linked list size
+
+	for (int i = 0; i < size; i++)//Creating a initial linked list
+	{
+		cout << "Enter element " << i + 1 << ": ";
+		cin >> arr[i];
+	}
+
+Disp: system("cls");
+	cout << "\nElements in Linked List" << endl;
+	for (int i = 0; i < size; i++)//Printing linked list element
+	{
+		cout << "Node " << i + 1<<" data: " << arr[i] << endl;
+	}
+	while (true)
+	{
+		cout << "\nPress 1 for Insertion\nPress 2 for Deletion\nPress 3 for Terminating the Program" << endl;
+		cout << "\nEnter Choice: ";
+		cin >> choice;
+		switch (choice)
+		{
+		
+		case 1:
+			cout << "Insert element " << endl;
+			if (size < 100)
+			{
+				size += 1;
+				cout << "Enter element :";
+				cin >> arr[size - 1];
+				goto Disp;
+			}
+			else
+			{
+				cout << "Index out of range" << endl;
+			}
+			break;
+
+		case 2:
+			cout << "Deleting an element " << endl;
+
+			if (size != 0)// until the fixed not reduced to less than 0
+			{
+				arr[size - 1] = NULL;
+				size -= 1;
+			}
+			else if (size == 0) //if size becomes '0' then element cannot be deleted.
+			{
+				cout << "Linked list is empty" << endl;
+			}
+			goto Disp;
+			break;
+	
+		case 3:
+			exit(0);
+
+		default:
+			cout << "Wrong choice, Try Again" << endl;
+		}
+
+	}
+	system("pause");
+}
+/*
+Follow me on my github:https://github.com/9to5tech
+Credits: Ali Raza Ali Qadri
+*/
